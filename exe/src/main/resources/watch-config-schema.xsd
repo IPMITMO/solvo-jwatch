@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2015 by Solvo, LTD
+
+This program is commercial software.
+Any unauthorized use is prohibited.
+
+Created Aug 11, 2015
+-->
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <xs:element name="watchConfig">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="ProcessType" name="process" maxOccurs="100" />
+                <xs:element type="PropertiesType" name="properties" />
+             </xs:sequence>
+        </xs:complexType>
+
+        <xs:unique name="processNameUnique">
+            <xs:selector xpath="process" />
+            <xs:field xpath="name" />
+        </xs:unique>
+
+        <xs:unique name="processOrderUnique">
+            <xs:selector xpath="process" />
+            <xs:field xpath="order" />
+        </xs:unique>
+    </xs:element>
+
+    <xs:complexType name="ProcessType">
+        <xs:all>
+            <xs:element name="name"         type="xs:string" />
+            <xs:element name="order"        type="PositiveNumberType" />
+            <xs:element name="startRetries" type="PositiveNumberType" />
+            <xs:element name="cmd"          type="xs:string" />
+            <xs:element name="startTimeout" type="PositiveNumberType" />
+
+            <xs:element name="coreDir"      type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="mail"         type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="pingDelay"    type="PositiveNumberType" minOccurs="0" maxOccurs="1" />
+            <xs:element name="pingInterval" type="PositiveNumberType" minOccurs="0" maxOccurs="1" />
+            <xs:element name="pingAlarms"   type="PositiveNumberType" minOccurs="0" maxOccurs="1" />
+            <xs:element name="pingerImpl"   type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="componentName"    type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:all>
+        <xs:attribute name="disabled"       type="xs:boolean" />
+        <xs:attribute name="pingable"       type="xs:boolean" />
+    </xs:complexType>
+
+    <xs:complexType name="PropertiesType">
+        <xs:all>
+            <xs:element name="spool"        type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="httpPort"     type="PositiveNumberType" minOccurs="0" maxOccurs="1" />
+            <xs:element name="environment"  type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="mail"         type="MailPropertiesType" minOccurs="0" maxOccurs="1" />            
+        </xs:all>
+    </xs:complexType>
+
+    <xs:simpleType name="PositiveNumberType">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="1" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="MailPropertiesType">
+        <xs:all>
+            <xs:element name="host"     type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="port"     type="PositiveNumberType" minOccurs="0" maxOccurs="1" />
+            <xs:element name="protocol" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="user"     type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="password" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="auth"     type="xs:boolean" minOccurs="0" maxOccurs="1" />
+            <xs:element name="fromAddr" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:all>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="description" content="Solvo jwatch web-manager">
+    <meta charset="UTF-8">
+    <title>Solvo Jwatch web-manager</title>
+    <style type="text/css">
+        body
+        {
+            margin: 0px 0px;
+            padding: 5px;
+            text-align:center;
+        }
+        h1, h2
+        {
+            color: #1f3855;
+        }
+        table
+        {
+            margin: 0 auto;
+            padding: 5px;
+            border: 1px solid #5bb9e2;
+            border-collapse: collapse;
+            line-height: 1.5;
+            color: #4c4a44;
+        }
+        td
+        {
+            min-width: 220px;
+            padding: 10px;
+            border: 1px solid #5bb9e2;
+        }
+        .sysman
+        {
+            border: 0px;
+        }
+        .sysman td
+        {
+            border: 0px;
+        }
+        .btn
+        {
+            min-height: 40px;
+        }
+        /* Command classes */
+        .activeCmd
+        {
+            color: #025a9c;
+        }
+        .inactiveCmd
+        {
+            color: #606683;
+        }
+        .shutDownCmd
+        {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .systemCmd
+        {
+            font-size: 23px;
+        }
+        .processCmd
+        {
+            font-size: 17px;
+        }
+        /* State classes */
+        .inactive
+        {
+            color: #51326F;
+        }
+        .running
+        {
+            color: #008000;
+        }
+        .incidental
+        {
+            text-decoration: line-through;
+        }
+        .halting
+        {
+            color: #e03e33;
+        }
+        .terminated
+        {
+            color: #d30058;
+        }
+        .txtErrInfo
+        {
+            color: #e5103b;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        var timeout_id;
+
+        function disableReload()
+        {
+            clearTimeout(timeout_id);
+        }
+
+        function shutDown_onclick()
+        {
+            clearTimeout(timeout_id);
+            window.location.href = "../system/shutDown";
+        }
+
+        function refreshCheckobox_onchange()
+        {
+            var refreshCheckboxElement = document.getElementById("refreshCheckbox");
+            if ( !refreshCheckboxElement.checked )
+            {
+                clearTimeout(timeout_id);
+            }
+            else
+            {
+                timeout_id = setTimeout( function()
+                            {
+                                location.reload(true);
+                            },
+                            15000);
+            }
+        }
+
+        window.onload = function()
+        {
+            timeout_id = setTimeout( function()
+                            {
+                                location.reload(true);
+                            },
+                            15000);
+            {$JS_SHUTDOWN_LISTENER}
+            document.getElementById("refreshCheckbox").addEventListener("change", refreshCheckobox_onchange);
+        }
+    </script>
+</head>
+<body>
+    <form method="POST" action="../system/save">
+        <table>
+            <tr>
+                <td colspan="5">
+                    <a href="/jwatch"><h1>Jwatch system manager</h1></a>
+                    {$ENVIRONMENT_NAME}
+                    Last update: {$LAST_UPDATE}
+                    <br/>
+                    <i>Auto refresh</i><input type="checkbox" checked="checked" id="refreshCheckbox" value="Autorefresh"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <h2>System state: {$SYSTEM_STATE}</h2>
+                    {$ERROR_INFO}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <table class="sysman">
+                        <tr>
+                            <td>{$START_SYSTEM_CMD}</td>
+                            <td>{$STOP_SYSTEM_CMD}</td>
+                            <td>{$RELOAD_SYSTEM_CMD}</td>
+                            <td>{$SHUT_DOWN_SYSTEM_CMD}</td>
+                            <td>{$SAVE_SYSTEM_CMD}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td><h3>Process</h3></td>
+                <td><h3>State (Start retries/Max)</h3></td>
+                <td><h3>Enabled</h3></td>
+                <td><h3>Management</h3></td>
+                <td><h3>Pinger Info</h3></td>
+            </tr>
+            {$PROCESSES_LIST}
+        </table>
+    </form>
+</body>
+</html>

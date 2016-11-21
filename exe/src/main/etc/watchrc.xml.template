@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<watchConfig>
+    <process disabled="false" pingable="false">
+        <cmd>/opt/solvo/bin/gateway -l 99 -p /usr/local/DMS/AKT/tmp/watch/gateway</cmd>
+        <componentName>gateway</componentName>
+        <coreDir>/usr/local/DMS/AKT/core/gateway</coreDir>
+        <mail>akrikheli@solvo.ru</mail>
+        <name>gateway</name>
+        <order>1</order>
+        <pingAlarms>3</pingAlarms>
+        <pingDelay>20000</pingDelay>
+        <pingInterval>300000</pingInterval>
+        <startRetries>50</startRetries>
+        <startTimeout>5000</startTimeout>
+    </process>
+     <process disabled="false" pingable="true">
+        <cmd>/opt/solvo/bin/solvo-dataman</cmd>
+        <componentName>solvo-dataman</componentName>
+        <coreDir>/usr/local/DMS/AKT/core/solvo-dataman</coreDir>
+        <mail>akrikheli@solvo.ru</mail>
+        <name>solvo-dataman</name>
+        <order>2</order>
+        <pingAlarms>3</pingAlarms>
+        <pingDelay>20000</pingDelay>
+        <pingInterval>300000</pingInterval>
+        <pingerImpl>SolvoCorbaPinger</pingerImpl>
+        <startRetries>50</startRetries>
+        <startTimeout>5000</startTimeout>
+    </process>
+    <properties>
+        <environment>AKT</environment>
+        <httpPort>40080</httpPort>
+        <mail>
+            <protocol>smtp</protocol>
+        </mail>
+    </properties>
+</watchConfig>

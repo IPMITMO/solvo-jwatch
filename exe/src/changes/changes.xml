@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document>
+    <properties>
+        <title>Changes of Solvo Jwatch (solvo-jwatch) Project</title>
+        <author email="akrikheli@solvo.ru">Artyom Krikheli</author>
+    </properties>
+    <body>    <release version="1.1" date="2015-11-30" description="Update dependency release">
+      <action dev="deest1ke" issue="299204" type="add" date="2016-05-13">Prepare to including in allinone/kit</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2016-04-18">Fixed process event fired by state failed_to_start to prevent problems with further reloading config</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2016-02-20">New release after fixing</action>
+      <action dev="deest1ke" type="add" date="2016-01-11">Fixed possible NPE in AbstractSystemExecutor</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-12-03">fixed xml schema validation</action>
+      <action dev="als" issue="326532" type="update" date="2015-11-30">Update to solvo-gadgets v2.2</action>
+    </release>
+    
+        <release version="1.0" date="2015-08-06" description="Initial release">
+      <action dev="deest1ke" issue="299204" type="add" date="2015-11-26">Fixed release</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-11-26">A little refactoring</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-11-23">add auto creation of core directory feature</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-11-20">Jwatch new release</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-11-19">Jwatch release</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-11-19">Jwatch refactoring</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-11-12">More fixed sync, add componentName param</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-11-12">Fixed bugs with inconsistency</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-11-11">Fixed bugs with inner synchronization</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-11-06">Fixed possibility of click on 'shutdown system' when system state is halting</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-11-05">New release with mail support</action>
+      <action dev="deest1ke" issue="54321" type="add" date="2015-11-03">Add possibility to interrupt start operation and shut down system forcibly</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-10-29">Add simple mailer, but it's not used in handlers as yet</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-10-28">New release</action>
+      <action dev="deest1ke" issue="54321" type="add" date="2015-10-27">Consider halting state when reloading is performing</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-10-20">Fixed bugs jwatch</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-10-20">Jwatch release</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-10-20">Jwatch new release</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-10-15">Fixed some defects for release</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-10-15">Jwatch release</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-10-14">Fixed jwatch view</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-10-12">Jwatch release, fixed bugs</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-10-09">fixed bug with web page (urls of commands for processes) and add 'destroyer' parameter in session - RELEASE</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-10-09">jwatch web refactoring</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-10-07">Jwatch modify</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-10-01">Fixed release</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-10-01">fixed changing of project structure</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-10-01">Change project structure</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-09-30">Fixed jersey version</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-09-26">Fixed jwatch reloading configuration modes and refactored executors method 'perform'</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-09-23">Jwatch code refactoring</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-09-23">Fixed jersey logger settings</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-09-18">Jwatch release</action>
+      <action dev="deest1ke" issue="299204" type="add" date="2015-09-18">Jwatch first release</action>
+            <action dev="user_akrikheli" type="update" issue="299204">Initial release</action>
+        </release>
+    </body>
+</document>
